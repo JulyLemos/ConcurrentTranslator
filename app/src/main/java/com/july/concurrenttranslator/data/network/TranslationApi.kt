@@ -1,6 +1,5 @@
 package com.july.concurrenttranslator.data.network
 
-import android.R
 import com.july.concurrenttranslator.data.model.TranslationResponse
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -15,6 +14,6 @@ interface TranslationApi {
     suspend fun translate(
         @Query("source_lang") sourceLang: String,
         @Query("target_lang") targetLang: String,
-        @Query("text") text: R.string
+        @Query("input_text") inputText: String
     ): TranslationResponse
 }
