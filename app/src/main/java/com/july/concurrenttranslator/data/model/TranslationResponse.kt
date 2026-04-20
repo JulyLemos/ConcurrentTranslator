@@ -1,3 +1,8 @@
 package com.july.concurrenttranslator.data.model
 
-data class TranslationResponse()
+import com.google.gson.annotations.SerializedName
+
+data class TranslationResponse(
+    @SerializedName("translatedText")
+    val translatedText: String
+)
