@@ -11,8 +11,8 @@ class TranslationRepository {
         inputText: String
     ): Result<String> {
         return try {
-            val response = api.translate(sourceLang, targetLang, inputText)
-            Result.success(response.translatedText)
+            val response = api.translate(inputText, sourceLang, targetLang)
+            Result.success(response.translation)
         } catch (e: Exception) {
             Result.failure(e)
         }

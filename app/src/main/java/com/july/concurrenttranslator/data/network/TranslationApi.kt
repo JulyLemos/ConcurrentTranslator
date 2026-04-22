@@ -1,19 +1,22 @@
 package com.july.concurrenttranslator.data.network
 
 import com.july.concurrenttranslator.data.model.TranslationResponse
-import retrofit2.http.GET
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.Headers
-import retrofit2.http.Query
+import retrofit2.http.POST
 
 interface TranslationApi {
+
     @Headers(
-        "x-rapidapi-host: text-translation2.p.rapidapi.com",
+        "x-rapidapi-host: free-google-translator.p.rapidapi.com",
         "x-rapidapi-key: 0efca81af1mshee5312859e2d216p1d7e9ajsna283087c44d0"
     )
-    @GET("translate")
+    @FormUrlEncoded
+    @POST("v1/translateList")
     suspend fun translate(
-        @Query("source_lang") sourceLang: String,
-        @Query("target_lang") targetLang: String,
-        @Query("input_text") inputText: String
+        @Field("query") text: String,
+        @Field("source") sourceLang: String,
+        @Field("target") targetLang: String
     ): TranslationResponse
 }

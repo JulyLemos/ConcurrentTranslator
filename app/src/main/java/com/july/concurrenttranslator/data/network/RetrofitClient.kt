@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
-    private const val BASE_URL = "https://text-translator2.p.rapidapi.com"
+    private const val BASE_URL = "https://free-google-translator.p.rapidapi.com/"
 
     val translationApi: TranslationApi by lazy {
         Retrofit.Builder()
