@@ -1,9 +1,8 @@
 package com.july.concurrenttranslator.data.repository
 
-import com.july.concurrenttranslator.data.network.RetrofitClient
+import com.july.concurrenttranslator.data.network.TranslationApi
 
 class TranslationRepository {
-    private val api = RetrofitClient.translationApi
 
     suspend fun translate(
         sourceLang: String,
@@ -11,8 +10,8 @@ class TranslationRepository {
         inputText: String
     ): Result<String> {
         return try {
-            val response = api.translate(inputText, sourceLang, targetLang)
-            Result.success(response.translation)
+            val result = TranslationApi.translate(sourceLang, targetLang, inputText)
+            Result.success(result)
         } catch (e: Exception) {
             Result.failure(e)
         }
